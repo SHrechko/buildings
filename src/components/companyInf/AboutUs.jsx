@@ -12,18 +12,45 @@ const styles = theme => ({
       fontStyle: "normal",
       fontStretch: "normal",
       color: "#38414c"
+    },
+    "@media only screen and (max-width: 1023px)": {
+      padding: "162px 100px 145px"
+    },
+    "@media only screen and (max-width: 767px)": {
+      padding: "162px 20px 145px"
     }
   },
   conteiner: {
     maxWidth: "1290px",
     height: "314px",
     display: "flex",
-    flexDirection: "row"
+    flexDirection: "row",
+    "@media only screen and (mix-width: 768px) and (max-width: 1023px)": {
+      height: "250px"
+    },
+    "@media only screen and (max-width: 767px)": {
+      display: "flex",
+      flexDirection: "column",
+      height: "max-content",
+      width: "auto",
+      margin: "0 auto",
+      maxWidth: "300px"
+    }
   },
   image: {
     width: "555px",
     height: "auto",
-    marginRight: "auto"
+    marginRight: "auto",
+    "@media only screen and (min-width: 768px) and (max-width: 1023px)": {
+      width: "270px"
+    },
+    "@media only screen and (max-width: 767px)": {
+      width: "auto",
+      marginRight: "0",
+      maxWidth: "100%",
+      marginBottom: "30px",
+      height: "auto"
+    }
   },
   infBlock: {
     width: "390px",
@@ -31,7 +58,15 @@ const styles = theme => ({
     marginLeft: "127px",
     display: "flex",
     flexDirection: "column",
-    height: "max-content"
+    height: "max-content",
+    "@media only screen and (max-width: 1023px)": {
+      marginLeft: "100px"
+    },
+    "@media only screen and (max-width: 767px)": {
+      maxWidth: "390px",
+      width: "100%",
+      marginLeft: "0"
+    }
   },
   infBlockTitle: {
     width: "auto",
@@ -40,13 +75,23 @@ const styles = theme => ({
     lineHeight: "normal",
     letterSpacing: "0.2px",
     textTransform: "uppercase",
-    marginBottom: "82px"
+    marginBottom: "82px",
+    "@media only screen and (max-width: 1023px)": {
+      fontSize: "28px",
+      marginBottom: "60px"
+    },
+    "@media only screen and (max-width: 767px)": {
+      marginBottom: "20px"
+    }
   },
   infBlockTxt: {
     fontSize: "16px",
     fontWeight: "normal",
     lineHeight: "1.63",
-    letterSpacing: "0.6px"
+    letterSpacing: "0.6px",
+    "@media only screen and (max-width: 1023px)": {
+      fontSize: "14px"
+    }
   }
 });
 

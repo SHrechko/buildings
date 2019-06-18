@@ -9,11 +9,13 @@ import TextField from "@material-ui/core/TextField";
 import Collapse from "@material-ui/core/Collapse";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
+import Sync from "@material-ui/icons/Sync";
 import ScrollArea from "react-scrollbar";
 import Dialog from "@material-ui/core/Dialog";
 import DialogContent from "@material-ui/core/DialogContent";
 import Fab from "@material-ui/core/Fab";
 import Icon from "@material-ui/core/Icon";
+import ResizeIcon from "../../assets/resize.svg";
 
 import Plan from "../../assets/plan.jpg";
 import PLan2 from "../../assets/plan@2x.jpg";
@@ -45,6 +47,22 @@ const styles = theme => ({
     display: "flex",
     flexDirection: "column"
   },
+  resizeButton: {
+    position: "absolute",
+    top: "689px",
+    right: "464px"
+  },
+  resize: {
+    marginTop: "-7px",
+    width: "36px",
+    height: "45px",
+    backgroundImage: `url(${ResizeIcon})`,
+    backgroundPositionY: "top",
+    backgroundPositionX: "center",
+    backgroundRepeatX: "no-repeat",
+    backgroundRepeatY: "no-repeat",
+    boxSizing: "boder-box"
+  },
   appBarChat: {
     margin: 0,
     height: "60px",
@@ -56,6 +74,7 @@ const styles = theme => ({
     display: "flex",
     float: "left",
     height: "100%",
+    color: "#ffffff",
     marginRight: "15px"
   },
   appBarTxt: {
@@ -189,6 +208,13 @@ const styles = theme => ({
   closePlan: {
     color: "#000000",
     float: "right"
+  },
+  sync: {
+    color: "#ffffff",
+    float: "right",
+    height: "30px",
+    width: "30px",
+    margin: "auto 0"
   },
   dialog: {
     padding: "20px"
@@ -438,6 +464,18 @@ class Project extends Component {
                 <Typography className={classes.appBarTxt}>FAQ</Typography>
               </Button>
             </li>
+            <li className={classes.appBarItem}>
+              <IconButton
+                onClick={() => {}}
+                className={classNames(classes.closeVoting, classes.sync)}
+                edge="start"
+                size="small"
+                color="inherit"
+                aria-label="close"
+              >
+                <Sync />
+              </IconButton>
+            </li>
           </ul>
           <ScrollArea
             className={classes.scrollArea}
@@ -562,6 +600,9 @@ class Project extends Component {
             />
           </Grid>
         </div>
+        <IconButton size="medium" className={classes.resizeButton}>
+          <div className={classes.resize} />
+        </IconButton>
       </div>
     );
   }

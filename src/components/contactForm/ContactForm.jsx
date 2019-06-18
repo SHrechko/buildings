@@ -21,7 +21,13 @@ const styles = theme => ({
   },
   conteiner: {
     width: "max-content",
-    margin: "auto"
+    margin: "auto",
+    "@media only screen and (max-width: 1023px)": {
+      width: "50%"
+    },
+    "@media only screen and (max-width: 767px)": {
+      width: "90%"
+    }
   },
   title: {
     display: "inline-block",
@@ -32,14 +38,24 @@ const styles = theme => ({
     color: "#ffffff",
     fontFamily: "SFProText",
     width: "50%",
-    textAlign: "center"
+    textAlign: "center",
+    "@media only screen and (max-width: 1023px)": {
+      width: "100%"
+    },
+    "@media only screen and (max-width: 767px)": {
+      fontSize: "26px"
+    }
   },
   form: {
     width: "50%",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    backgroundColor: "gray"
+    backgroundColor: "gray",
+    "@media only screen and (max-width: 1023px)": {
+      width: "100%",
+      height: "50%"
+    }
   },
   formTitle: {
     fontFamily: "SFProText",
@@ -49,11 +65,19 @@ const styles = theme => ({
     fontWeight: "bold",
     marginTop: "48px",
     marginBottom: "10px",
-    color: "#ffffff"
+    color: "#ffffff",
+    "@media only screen and (max-width: 767px)": {
+      fontSize: "18px",
+      fontWeight: "500"
+    }
   },
   textField: {
     width: "290px",
-    marginTop: "30px"
+    marginTop: "30px",
+    color: "#ffffff",
+    "@media only screen and (max-width: 767px)": {
+      width: "90%"
+    }
   },
   submit: {
     textTransform: "uppercase",
@@ -67,14 +91,21 @@ const styles = theme => ({
   buttonText: {
     fontFamily: "SFProText",
     letterSpacing: "2.7px",
-    fontWeight: "bold"
+    fontWeight: "bold",
+    "@media only screen and (max-width: 767px)": {
+      fontSize: "14px"
+    }
   },
   contactInfo: {
     width: "50%",
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    "@media only screen and (max-width: 1023px)": {
+      width: "100%",
+      height: "50%"
+    }
   },
   infoItem: {
     display: "flex",
@@ -88,7 +119,10 @@ const styles = theme => ({
     color: "#363e48",
     marginLeft: "21px",
     width: "180px",
-    opacity: "0.8"
+    opacity: "0.8",
+    "@media only screen and (max-width: 767px)": {
+      fontSize: "14px"
+    }
   },
   icon: {
     width: "25px",
@@ -100,6 +134,18 @@ const styles = theme => ({
     "& > div:not(:last-child)": {
       marginBottom: "44px"
     }
+  },
+  flexBlock: {
+    width: "945px",
+    height: "500px",
+    backgroundColor: "#ffffff",
+    display: "flex",
+    flexDirection: "row",
+    "@media only screen and (max-width: 1023px)": {
+      width: "100%",
+      flexDirection: "column",
+      height: "1000px"
+    }
   }
 });
 
@@ -109,7 +155,10 @@ const CssTextField = withStyles({
       color: "#ffffff",
       opacity: 0.35,
       letterSpacing: "0.2px",
-      fontFamily: "SFProText"
+      fontFamily: "SFProText",
+      "@media only screen and (max-width: 767px)": {
+        fontSize: "14px"
+      }
     },
     "& label.Mui-focused": {
       color: "#ffffff",
@@ -117,6 +166,12 @@ const CssTextField = withStyles({
     },
     "& .MuiInput-underline:after, .MuiInput-underline:before, :hover.MuiInput-underline:before": {
       borderBottomColor: "white"
+    },
+    "& .MuiInputBase-input": {
+      color: "white",
+      "@media only screen and (max-width: 767px)": {
+        fontSize: "12px"
+      }
     }
   }
 })(TextField);
@@ -135,15 +190,7 @@ class ContactForm extends Component {
           <Typography className={classes.title} variant="h4">
             GET IN TOUCH
           </Typography>
-          <div
-            style={{
-              width: "945px",
-              height: "500px",
-              backgroundColor: "#ffffff",
-              display: "flex",
-              flexDirection: "row"
-            }}
-          >
+          <div className={classes.flexBlock}>
             <div className={classes.form}>
               <Typography
                 variant="h6"

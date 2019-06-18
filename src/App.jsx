@@ -79,7 +79,7 @@ class App extends Component {
         <AppBar home={homePage ? true : false} />
         <SideBar />
         {currentPageComponent}
-        <Footer />
+        <Footer home={homePage ? true : false} />
       </MuiThemeProvider>
     );
   }

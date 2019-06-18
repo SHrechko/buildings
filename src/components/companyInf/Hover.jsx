@@ -26,7 +26,8 @@ const styles = theme => ({
     },
 
     "& > .hover__no-hover": {
-      opacity: 1
+      opacity: 1,
+      width: "100%"
     }
   },
   bgBlack: {
@@ -41,10 +42,13 @@ const styles = theme => ({
     left: "50%",
     transform: "translate(-50%, -50%)",
     borderRadius: 0,
-    backgroundColor: "#e94a4a",
+    border: "2px solid #e94a4a",
     height: "50px",
     width: "224px",
-    padding: "0 20px"
+    padding: "0 20px",
+    "&:hover": {
+      backgroundColor: "#e94a4a"
+    }
   },
   buttonTxt: {
     color: "#ffffff",

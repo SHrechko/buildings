@@ -19,7 +19,8 @@ const styles = theme => ({
     overflow: "hidden"
   },
   content: {
-    width: "1164px",
+    maxWidth: "1440px",
+    width: "auto",
     margin: "0 auto 164px"
   },
   headBlock: {
@@ -28,7 +29,11 @@ const styles = theme => ({
     display: "flex",
     flexDiirection: "row",
     alignItems: "center",
-    marginBottom: "50px"
+    marginBottom: "50px",
+    padding: "0 30px",
+    "@media only screen and (max-width: 424px)": {
+      padding: "0 15px"
+    }
   },
   title: {
     width: "auto",
@@ -38,19 +43,36 @@ const styles = theme => ({
     lineHeight: "normal",
     letterSpacing: "0.2px",
     textTransform: "uppercase",
-    flexGrow: 1
+    flexGrow: 1,
+    "@media only screen and (max-width: 450px)": {
+      fontSize: "28px",
+      fontWeight: "700"
+    }
   },
   slickItem: {
     width: "360px",
     display: "flex",
     flexDirection: "column",
     position: "relative",
-    margin: "0 auto"
+    marginLeft: "auto",
+    marginRight: "auto",
+    "@media only screen and (max-width: 1150px)": {
+      width: "300px"
+    },
+    "@media only screen and (max-width: 1023px)": {
+      width: "372px"
+    },
+    "@media only screen and (max-width: 450px)": {
+      width: "320px"
+    }
   },
   img: {
-    width: "auto",
+    width: "100%",
     height: "330px",
-    marginBottom: "45px"
+    marginBottom: "45px",
+    "@media only screen and (max-width: 1150px)": {
+      height: "auto"
+    }
   },
   itemName: {
     width: "190px",
@@ -66,7 +88,10 @@ const styles = theme => ({
     textAlign: "center",
     color: "#38414c",
     textAlign: "center",
-    margin: "0 auto"
+    margin: "0 auto",
+    "@media only screen and (max-width: 450px)": {
+      fontSize: "18px"
+    }
   },
   slide: {
     width: "100%",
@@ -164,7 +189,21 @@ class OurProjects extends Component {
       infinite: true,
       speed: 500,
       slidesToShow: 3,
-      slidesToScroll: 1
+      slidesToScroll: 1,
+      responsive: [
+        {
+          breakpoint: 1023,
+          settings: {
+            slidesToShow: 2
+          }
+        },
+        {
+          breakpoint: 767,
+          settings: {
+            slidesToShow: 1
+          }
+        }
+      ]
     };
     return (
       <div className={classes.ourProjects}>

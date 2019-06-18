@@ -7,6 +7,8 @@ import ListItemText from "@material-ui/core/ListItemText";
 import SideBarStore from "../../stores/SideBarStore";
 import SideBarActions from "../../actions/SideBarActions";
 import Typography from "@material-ui/core/Typography";
+import IconButton from "@material-ui/core/IconButton";
+import CloseIcon from "@material-ui/icons/Close";
 import classNames from "classnames";
 
 const styles = theme => ({
@@ -15,24 +17,21 @@ const styles = theme => ({
     height: "816px",
     backgroundColor: "#263949"
   },
-  list: {
-    paddingLeft: "15px",
-    paddingRight: "15px"
-  },
   listItem: {
-    paddingLeft: "0",
-    paddingRight: "0",
-    "&:not(:last-child)": {
-      borderBottom: "1px solid rgba(255, 255, 255, 0.2)"
-    }
+    paddingLeft: "15px",
+    paddingRight: "15px",
+    paddingBottom: "0"
   },
   menu: {
-    width: "100%",
+    width: "auto",
     height: "60px",
     backgroundColor: "#1f2f3d",
     display: "flex",
-    justifyContent: "center",
-    alignItems: "center"
+    paddingLeft: "15px",
+    paddingRight: "15px",
+    justifyContent: "space-between",
+    alignItems: "center",
+    color: "rgba(255, 255, 255, 0.8)"
   },
   txt: {
     fontFamily: "SFProText",
@@ -42,7 +41,11 @@ const styles = theme => ({
     fontStretch: "normal",
     lineHeight: "2.86",
     letterSpacing: "0.3px",
-    color: "#ffffff"
+    color: "rgba(255, 255, 255, 0.8)",
+    marginBottom: "0",
+    marginTop: "8px",
+    paddingBottom: "12px",
+    borderBottom: "1px solid rgba(255, 255, 255, 0.2)"
   },
   menuTxt: {
     fontWeight: "500",
@@ -100,12 +103,20 @@ class SideBar extends Component {
         >
           Main menu
         </Typography>
+        <IconButton
+          onClick={this.toggleDrawer(false)}
+          edge="start"
+          size="small"
+          color="inherit"
+          aria-label="close"
+        >
+          <CloseIcon />
+        </IconButton>
       </div>
       <List
         onClick={this.toggleDrawer(false)}
         onKeyDown={this.toggleDrawer(false)}
         role="presentation"
-        className={this.props.classes.list}
       >
         {list.map((text, index) => (
           <ListItem className={this.props.classes.listItem} button key={text}>
