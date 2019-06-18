@@ -390,7 +390,11 @@ class Project extends Component {
 
     return (
       <div className={classes.project}>
-        {projectId} Project
+        <iframe
+          width="100%"
+          height="100%"
+          src="http://ebuildings.eu/building_test_5/index.html"
+        />
         <Dialog
           classes={classes.dialog}
           fullWidth={false}
