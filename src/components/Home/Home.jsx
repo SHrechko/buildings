@@ -8,7 +8,6 @@ import HomeBitmap2 from "../../assets/home_bitmap@2x.jpg";
 import HomeBitmap3 from "../../assets/home_bitmap@3x.jpg";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import BitmapSmall from "../../assets/bitmap@2x.jpg";
 
 const styles = theme => ({
   home: {
@@ -120,7 +119,6 @@ const styles = theme => ({
   textButton: {
     textTransform: "uppercase",
     fontSize: "16px",
-    letterSpacing: "2.7px",
     fontWeight: "bold",
     lineHeight: "normal",
     letterSpacing: "2.7px"
@@ -167,13 +165,14 @@ class Home extends Component {
             from real draws
           </div>
           <Button size="large" variant="outlined" className={classes.button}>
-            <Typography classes={classes.textButton}>
+            <Typography className={classes.textButton}>
               TRY IT FOR FREE
             </Typography>
           </Button>
           <img
             src={HomeBitmap}
-            srcset={`${HomeBitmap2}, ${HomeBitmap3}`}
+            alt="little Home Bitmap"
+            srcSet={`${HomeBitmap2}, ${HomeBitmap3}`}
             className={classes.smallBitmap}
           />
         </div>

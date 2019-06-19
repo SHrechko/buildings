@@ -21,7 +21,10 @@ const styles = theme => ({
   content: {
     maxWidth: "1440px",
     width: "auto",
-    margin: "0 auto 164px"
+    margin: "0 auto 164px",
+    "@media only screen and (max-width: 767px)": {
+      marginBottom: "80px"
+    }
   },
   headBlock: {
     width: "auto",
@@ -56,13 +59,13 @@ const styles = theme => ({
     position: "relative",
     marginLeft: "auto",
     marginRight: "auto",
-    "@media only screen and (max-width: 1150px)": {
+    "@media only screen and (max-width: 1149px)": {
       width: "300px"
     },
     "@media only screen and (max-width: 1023px)": {
-      width: "372px"
+      width: "340px"
     },
-    "@media only screen and (max-width: 450px)": {
+    "@media only screen and (max-width: 449px)": {
       width: "320px"
     }
   },
@@ -70,7 +73,7 @@ const styles = theme => ({
     width: "100%",
     height: "330px",
     marginBottom: "45px",
-    "@media only screen and (max-width: 1150px)": {
+    "@media only screen and (max-width: 1149px)": {
       height: "auto"
     }
   },
@@ -87,9 +90,8 @@ const styles = theme => ({
     letterSpacing: "0.7px",
     textAlign: "center",
     color: "#38414c",
-    textAlign: "center",
     margin: "0 auto",
-    "@media only screen and (max-width: 450px)": {
+    "@media only screen and (max-width: 449px)": {
       fontSize: "18px"
     }
   },
@@ -99,6 +101,20 @@ const styles = theme => ({
   },
   arrow: {
     marginRight: "15px"
+  },
+  carousel: {
+    width: "1130px",
+    marginLeft: "auto",
+    marginRight: "auto",
+    "@media only screen and (max-width: 1149px)": {
+      width: "1000px"
+    },
+    "@media only screen and (max-width: 1023px)": {
+      width: "780px"
+    },
+    "@media only screen and (max-width: 767px)": {
+      width: "auto"
+    }
   }
 });
 
@@ -182,7 +198,7 @@ class OurProjects extends Component {
 
     var settings = {
       adaptiveHeight: true,
-      // className: classes.carousel,
+      className: classes.carousel,
       centerMode: false,
       arrows: false,
       dots: false,
@@ -238,9 +254,10 @@ class OurProjects extends Component {
                 <div className={classes.slickItem}>
                   <Hover projectId={item.id}>
                     <img
+                      alt={`project${item.id}`}
                       className={classes.img}
                       src={item.img}
-                      srcset={`${item.img2}, ${item.img3}`}
+                      srcSet={`${item.img2}, ${item.img3}`}
                     />
                   </Hover>
                   <Typography className={classes.itemName}>

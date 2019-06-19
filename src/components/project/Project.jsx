@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import ReactDom from "react-dom";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
@@ -16,6 +15,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import Fab from "@material-ui/core/Fab";
 import Icon from "@material-ui/core/Icon";
 import ResizeIcon from "../../assets/resize.svg";
+import Slide from "@material-ui/core/Slide";
 
 import Plan from "../../assets/plan.jpg";
 import PLan2 from "../../assets/plan@2x.jpg";
@@ -31,7 +31,6 @@ const styles = theme => ({
   project: {
     height: "775px",
     width: "100%",
-    backgroundColor: "gray",
     position: "relative"
   },
   chat: {
@@ -50,7 +49,8 @@ const styles = theme => ({
   resizeButton: {
     position: "absolute",
     top: "689px",
-    right: "464px"
+    right: "464px",
+    transition: "right 0.1s linear"
   },
   resize: {
     marginTop: "-7px",
@@ -241,7 +241,7 @@ const styles = theme => ({
       width: "30px",
       height: "30px"
     }
-  }
+  },
 });
 
 const CssTextField = withStyles({
@@ -364,7 +364,8 @@ class Project extends Component {
       voted: true,
       openPlan: false,
       stars: true,
-      starIndex: null
+      starIndex: null,
+      chat: true
     };
   }
 
@@ -374,7 +375,7 @@ class Project extends Component {
 
   render() {
     const { classes } = this.props;
-    const { projectId, voted, openPlan, stars, starIndex } = this.state;
+    const { projectId, voted, openPlan, stars, starIndex, chat } = this.state;
 
     const settings = {
       adaptiveHeight: true,
@@ -390,15 +391,11 @@ class Project extends Component {
 
     return (
       <div className={classes.project}>
-        <iframe
-          width="100%"
-          height="100%"
-          src="http://ebuildings.eu/building_test_5/index.html"
-        />
+        
         <Dialog
-          classes={classes.dialog}
+          className={classes.dialog}
           fullWidth={false}
-          maxWidth={true}
+          maxWidth="md"
           open={openPlan}
           onClose={() => this.setState({ openPlan: false })}
           aria-labelledby="max-width-dialog-title"
@@ -425,186 +422,215 @@ class Project extends Component {
             <Slider {...settings}>
               <div className={classes.sliderItem}>
                 <img
+                  alt="Plan"
                   src={Plan}
                   className={classes.sliderImg}
-                  srcset={`${PLan2}, ${Plan3}`}
+                  srcSet={`${PLan2}, ${Plan3}`}
                 />
               </div>
               <div className={classes.sliderItem}>
                 <img
+                  alt="Plan"
                   src={Plan}
                   className={classes.sliderImg}
-                  srcset={`${PLan2}, ${Plan3}`}
+                  srcSet={`${PLan2}, ${Plan3}`}
                 />
               </div>
               <div className={classes.sliderItem}>
                 <img
+                  alt="Plan"
                   src={Plan}
                   className={classes.sliderImg}
-                  srcset={`${PLan2}, ${Plan3}`}
+                  srcSet={`${PLan2}, ${Plan3}`}
                 />
               </div>
             </Slider>
           </DialogContent>
         </Dialog>
-        <div className={classes.chat}>
-          <ul className={classes.appBarChat}>
-            <li className={classes.appBarItem}>
-              <Button onClick={() => this.setState({ openPlan: true })}>
-                <Typography className={classes.appBarTxt}>
-                  Floor plan
-                </Typography>
-              </Button>
-            </li>
-            <li className={classes.appBarItem}>
-              <Button>
-                <Typography className={classes.appBarTxt}>
-                  Point of interest
-                </Typography>
-              </Button>
-            </li>
-            <li className={classes.appBarItem}>
-              <Button>
-                <Typography className={classes.appBarTxt}>FAQ</Typography>
-              </Button>
-            </li>
-            <li className={classes.appBarItem}>
-              <IconButton
-                onClick={() => {}}
-                className={classNames(classes.closeVoting, classes.sync)}
-                edge="start"
-                size="small"
-                color="inherit"
-                aria-label="close"
-              >
-                <Sync />
-              </IconButton>
-            </li>
-          </ul>
-          <ScrollArea
-            className={classes.scrollArea}
-            vertical={true}
-            contentClassName="content"
-            smoothScrolling={true}
-            focusableTabIndex={1}
-            horizontal={true}
-            speed={1}
-            verticalContainerStyle={{
-              width: "2px",
-              overflow: "visible",
-              right: "2px",
-              borderRadius: "2px",
-              backgroundColor: "#e8e8e8"
-            }}
-            verticalScrollbarStyle={{
-              marginLeft: "-1px",
-              backgroundColor: "#e94a4a",
-              width: "4px",
-              borderRadius: "2px",
-              opacity: "1"
-            }}
-          >
-            <div className="content">
-              {messages.map(message => (
-                <div className={classes.message} key={message.id}>
-                  <Avatar alt="Remy Sharp" src="#" className={classes.avatar} />
-                  <div className={classes.messageContainer}>
-                    <div className={classes.nameDate}>
-                      <Typography
-                        variant="body2"
-                        className={classes.messageName}
-                      >
-                        {message.name}
-                      </Typography>
-                      <Typography variant="caption">{message.time}</Typography>
-                    </div>
-                    <Typography className={classes.messageTxt} variant="body2">
-                      {message.text}
-                    </Typography>
-                    <div className={classes.reply}>Reply</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </ScrollArea>
-          <Grid
-            className={classNames(classes.grid, classes.gridStars)}
-            container
-            alignItems="center"
-          >
-            <Collapse
-              className={classes.collapse}
-              in={voted}
-              timeout="auto"
-              unmountOnExit
-            >
-              <div className={classes.votingBlock}>
-                {stars ? (
-                  <div className={classes.stars}>
-                    {[1, 2, 3, 4, 5].map(star => (
-                      <Fab
-                        key={star}
-                        className={classes.star}
-                        color="inherit"
-                        size="small"
-                        onClick={() => this.setState({ stars: false })}
-                        onMouseEnter={() => this.setState({ starIndex: star })}
-                        onMouseLeave={() => this.setState({ starIndex: null })}
-                      >
-                        {starIndex && star <= starIndex ? (
-                          <Icon>star</Icon>
-                        ) : (
-                          <Icon>star_border</Icon>
-                        )}
-                      </Fab>
-                    ))}
-                  </div>
-                ) : (
-                  <Typography
-                    className={classNames(
-                      classes.closedVotingTxt,
-                      classes.appBarTxt
-                    )}
-                  >
-                    Thank you for your rating!
+        <Slide
+          className={classes.chat}
+          direction="left"
+          in={chat}
+          mountOnEnter
+          unmountOnExit
+        >
+          <div>
+            <ul className={classes.appBarChat}>
+              <li className={classes.appBarItem}>
+                <Button onClick={() => this.setState({ openPlan: true })}>
+                  <Typography className={classes.appBarTxt}>
+                    Floor plan
                   </Typography>
-                )}
-
+                </Button>
+              </li>
+              <li className={classes.appBarItem}>
+                <Button>
+                  <Typography className={classes.appBarTxt}>
+                    Point of interest
+                  </Typography>
+                </Button>
+              </li>
+              <li className={classes.appBarItem}>
+                <Button>
+                  <Typography className={classes.appBarTxt}>FAQ</Typography>
+                </Button>
+              </li>
+              <li className={classes.appBarItem}>
                 <IconButton
-                  onClick={() =>
-                    this.setState(state => ({ voted: !state.voted }))
-                  }
-                  className={classes.closeVoting}
+                  onClick={() => {}}
+                  className={classNames(classes.closeVoting, classes.sync)}
                   edge="start"
                   size="small"
                   color="inherit"
                   aria-label="close"
                 >
-                  <CloseIcon />
+                  <Sync />
                 </IconButton>
+              </li>
+            </ul>
+            <ScrollArea
+              className={classes.scrollArea}
+              vertical={true}
+              contentClassName="content"
+              smoothScrolling={true}
+              focusableTabIndex={1}
+              horizontal={true}
+              speed={1}
+              verticalContainerStyle={{
+                width: "2px",
+                overflow: "visible",
+                right: "2px",
+                borderRadius: "2px",
+                backgroundColor: "#e8e8e8"
+              }}
+              verticalScrollbarStyle={{
+                marginLeft: "-1px",
+                backgroundColor: "#e94a4a",
+                width: "4px",
+                borderRadius: "2px",
+                opacity: "1"
+              }}
+            >
+              <div className="content">
+                {messages.map(message => (
+                  <div className={classes.message} key={message.id}>
+                    <Avatar
+                      alt="Remy Sharp"
+                      src="#"
+                      className={classes.avatar}
+                    />
+                    <div className={classes.messageContainer}>
+                      <div className={classes.nameDate}>
+                        <Typography
+                          variant="body2"
+                          className={classes.messageName}
+                        >
+                          {message.name}
+                        </Typography>
+                        <Typography variant="caption">
+                          {message.time}
+                        </Typography>
+                      </div>
+                      <Typography
+                        className={classes.messageTxt}
+                        variant="body2"
+                      >
+                        {message.text}
+                      </Typography>
+                      <div className={classes.reply}>Reply</div>
+                    </div>
+                  </div>
+                ))}
               </div>
-            </Collapse>
-          </Grid>
-          <Grid
-            className={classes.grid}
-            container
-            justify="center"
-            alignItems="center"
-          >
-            <Avatar alt="Remy Sharp" src="#" className={classes.avatar} />
-            <CssTextField
-              inputProps={{ padding: "2px 5px" }}
-              id="outlined-dense-multiline"
-              label="Join the community"
-              className={classNames(classes.textField, classes.dense)}
-              margin="dense"
-              variant="outlined"
-              multiline
-              rowsMax="3"
-            />
-          </Grid>
-        </div>
-        <IconButton size="medium" className={classes.resizeButton}>
+            </ScrollArea>
+            <Grid
+              className={classNames(classes.grid, classes.gridStars)}
+              container
+              alignItems="center"
+            >
+              <Collapse
+                className={classes.collapse}
+                in={voted}
+                timeout="auto"
+                unmountOnExit
+              >
+                <div className={classes.votingBlock}>
+                  {stars ? (
+                    <div className={classes.stars}>
+                      {[1, 2, 3, 4, 5].map(star => (
+                        <Fab
+                          key={star}
+                          className={classes.star}
+                          color="inherit"
+                          size="small"
+                          onClick={() => this.setState({ stars: false })}
+                          onMouseEnter={() =>
+                            this.setState({ starIndex: star })
+                          }
+                          onMouseLeave={() =>
+                            this.setState({ starIndex: null })
+                          }
+                        >
+                          {starIndex && star <= starIndex ? (
+                            <Icon>star</Icon>
+                          ) : (
+                            <Icon>star_border</Icon>
+                          )}
+                        </Fab>
+                      ))}
+                    </div>
+                  ) : (
+                    <Typography
+                      className={classNames(
+                        classes.closedVotingTxt,
+                        classes.appBarTxt
+                      )}
+                    >
+                      Thank you for your rating!
+                    </Typography>
+                  )}
+
+                  <IconButton
+                    onClick={() =>
+                      this.setState(state => ({ voted: !state.voted }))
+                    }
+                    className={classes.closeVoting}
+                    edge="start"
+                    size="small"
+                    color="inherit"
+                    aria-label="close"
+                  >
+                    <CloseIcon />
+                  </IconButton>
+                </div>
+              </Collapse>
+            </Grid>
+            <Grid
+              className={classes.grid}
+              container
+              justify="center"
+              alignItems="center"
+            >
+              <Avatar alt="Remy Sharp" src="#" className={classes.avatar} />
+              <CssTextField
+                inputProps={{ padding: "2px 5px" }}
+                id="outlined-dense-multiline"
+                label="Join the community"
+                className={classNames(classes.textField, classes.dense)}
+                margin="dense"
+                variant="outlined"
+                multiline
+                rowsMax="3"
+              />
+            </Grid>
+          </div>
+        </Slide>
+        <IconButton
+          onClick={() => this.setState(state => ({ chat: !state.chat }))}
+          style={!chat ? { right: "30px" } : {}}
+          size="medium"
+          className={classes.resizeButton}
+        >
           <div className={classes.resize} />
         </IconButton>
       </div>

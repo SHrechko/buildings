@@ -121,7 +121,6 @@ class SideBar extends Component {
         {list.map((text, index) => (
           <ListItem className={this.props.classes.listItem} button key={text}>
             <ListItemText
-              dense
               disableTypography={true}
               className={this.props.classes.txt}
               primary={text}
@@ -134,7 +133,6 @@ class SideBar extends Component {
 
   render() {
     const { open } = this.state;
-    const { classes } = this.props;
     return (
       <SwipeableDrawer
         anchor="right"

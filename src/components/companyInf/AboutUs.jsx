@@ -17,7 +17,7 @@ const styles = theme => ({
       padding: "162px 100px 145px"
     },
     "@media only screen and (max-width: 767px)": {
-      padding: "162px 20px 145px"
+      padding: "102px 20px 85px"
     }
   },
   conteiner: {
@@ -40,9 +40,8 @@ const styles = theme => ({
   image: {
     width: "555px",
     height: "auto",
-    marginRight: "auto",
     "@media only screen and (min-width: 768px) and (max-width: 1023px)": {
-      width: "270px"
+      width: "320px"
     },
     "@media only screen and (max-width: 767px)": {
       width: "auto",
@@ -106,7 +105,7 @@ class AboutUs extends Component {
     return (
       <div className={classes.aboutUs}>
         <div className={classes.conteiner}>
-          <img src={HomeBitmap} className={classes.image} />
+          <img src={HomeBitmap} alt="Home Bitmap" className={classes.image} />
           <div className={classes.infBlock}>
             <Typography className={classes.infBlockTitle}>
               We creating

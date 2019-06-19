@@ -228,19 +228,19 @@ class ContactForm extends Component {
             <div className={classes.contactInfo}>
               <div className={classes.infoContainer}>
                 <div className={classes.infoItem}>
-                  <img className={classes.icon} src={Places} />
+                  <img className={classes.icon} alt="Places" src={Places} />
                   <Typography variant="subtitle2" className={classes.infoTxt}>
                     Runeberginkatu 25, Kotka / Finland
                   </Typography>
                 </div>
                 <div className={classes.infoItem}>
-                  <img className={classes.icon} src={Phone} />
+                  <img className={classes.icon} alt="Phone" src={Phone} />
                   <Typography variant="subtitle2" className={classes.infoTxt}>
                     +358 40 740 22906
                   </Typography>
                 </div>
                 <div className={classes.infoItem}>
-                  <img className={classes.icon} src={Envelope} />
+                  <img className={classes.icon} alt="Envelope" src={Envelope} />
                   <Typography variant="subtitle2" className={classes.infoTxt}>
                     info@tuned.rocks
                   </Typography>

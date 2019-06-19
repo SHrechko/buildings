@@ -89,6 +89,7 @@ class Footer extends Component {
           style={!this.props.home ? { height: "159px" } : {}}
         >
           <img
+            alt="Logo"
             src={Logo}
             className={classes.logo}
             style={
@@ -117,10 +118,10 @@ class Footer extends Component {
           <div className={classes.socialBlock}>
             <div>
               <IconButton size="small" className={classes.img}>
-                <img src={Inst} />
+                <img src={Inst} alt="Instagram" />
               </IconButton>
               <IconButton size="small" className={classes.img}>
-                <img src={Fb} />
+                <img src={Fb} alt="Facebook" />
               </IconButton>
             </div>
           </div>
