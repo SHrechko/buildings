@@ -20,9 +20,16 @@ const styles = theme => ({
   },
   content: {
     maxWidth: "1440px",
-    width: "auto",
+    width: "1150px",
     margin: "0 auto 164px",
+    "@media only screen and (max-width: 1149px)": {
+      width: "1000px"
+    },
+    "@media only screen and (max-width: 1023px)": {
+      width: "780px"
+    },
     "@media only screen and (max-width: 767px)": {
+      width: "auto",
       marginBottom: "80px"
     }
   },
@@ -33,9 +40,9 @@ const styles = theme => ({
     flexDiirection: "row",
     alignItems: "center",
     marginBottom: "50px",
-    padding: "0 30px",
+    padding: "0 15px",
     "@media only screen and (max-width: 424px)": {
-      padding: "0 15px"
+      padding: "0 10px"
     }
   },
   title: {
@@ -100,7 +107,7 @@ const styles = theme => ({
     outline: "none"
   },
   arrow: {
-    marginRight: "15px"
+    margin: "10px 15px 10px 0"
   },
   carousel: {
     width: "1130px",

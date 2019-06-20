@@ -20,6 +20,7 @@ import Slide from "@material-ui/core/Slide";
 import Plan from "../../assets/plan.jpg";
 import PLan2 from "../../assets/plan@2x.jpg";
 import Plan3 from "../../assets/plan@3x.jpg";
+import User from "../../assets/user.svg";
 
 import classNames from "classnames";
 
@@ -241,7 +242,7 @@ const styles = theme => ({
       width: "30px",
       height: "30px"
     }
-  },
+  }
 });
 
 const CssTextField = withStyles({
@@ -391,7 +392,6 @@ class Project extends Component {
 
     return (
       <div className={classes.project}>
-        
         <Dialog
           className={classes.dialog}
           fullWidth={false}
@@ -516,7 +516,7 @@ class Project extends Component {
                   <div className={classes.message} key={message.id}>
                     <Avatar
                       alt="Remy Sharp"
-                      src="#"
+                      src={`${User}`}
                       className={classes.avatar}
                     />
                     <div className={classes.messageContainer}>
@@ -611,7 +611,11 @@ class Project extends Component {
               justify="center"
               alignItems="center"
             >
-              <Avatar alt="Remy Sharp" src="#" className={classes.avatar} />
+              <Avatar
+                alt="Remy Sharp"
+                src={`${User}`}
+                className={classes.avatar}
+              />
               <CssTextField
                 inputProps={{ padding: "2px 5px" }}
                 id="outlined-dense-multiline"

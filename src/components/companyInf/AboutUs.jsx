@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { withStyles } from "@material-ui/core/styles";
-import HomeBitmap from "../../assets/home_bitmap.jpg";
+import AboutUsImage from "../../assets/AboutUsImage.jpg";
 import Typography from "@material-ui/core/Typography";
 
 const styles = theme => ({
@@ -41,7 +41,7 @@ const styles = theme => ({
     width: "555px",
     height: "auto",
     "@media only screen and (min-width: 768px) and (max-width: 1023px)": {
-      width: "320px"
+      width: "400px"
     },
     "@media only screen and (max-width: 767px)": {
       width: "auto",
@@ -59,7 +59,7 @@ const styles = theme => ({
     flexDirection: "column",
     height: "max-content",
     "@media only screen and (max-width: 1023px)": {
-      marginLeft: "100px"
+      marginLeft: "70px"
     },
     "@media only screen and (max-width: 767px)": {
       maxWidth: "390px",
@@ -105,7 +105,7 @@ class AboutUs extends Component {
     return (
       <div className={classes.aboutUs}>
         <div className={classes.conteiner}>
-          <img src={HomeBitmap} alt="Home Bitmap" className={classes.image} />
+          <img src={AboutUsImage} alt="Home Bitmap" className={classes.image} />
           <div className={classes.infBlock}>
             <Typography className={classes.infBlockTitle}>
               We creating

@@ -7,6 +7,7 @@ import Button from "@material-ui/core/Button";
 import Places from "../../assets/facebook-places.svg";
 import Phone from "../../assets/phone.svg";
 import Envelope from "../../assets/envelope.svg";
+import ContactFormImg from "../../assets/contactForm.png";
 
 const styles = theme => ({
   contactForm: {
@@ -51,7 +52,13 @@ const styles = theme => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    backgroundColor: "gray",
+    backgroundImage: `url(${ContactFormImg})`,
+    backgroundPositionX: "center",
+    backgroundPositionY: "top",
+    backgroundRepeatX: "no-repeat",
+    backgroundRepeatY: "no-repeat",
+    boxSizing: "border-box",
+    backgroundSize: "cover",
     "@media only screen and (max-width: 1023px)": {
       width: "100%",
       height: "50%"

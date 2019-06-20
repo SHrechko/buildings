@@ -27,8 +27,9 @@ const styles = () => ({
     zIndex: "-1"
   },
   iframe: {
-    width: "calc(100% - 4px)",
-    height: "100%"
+    width: "100%",
+    height: "100%",
+    border: "none"
   }
 });
 

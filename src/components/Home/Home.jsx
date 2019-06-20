@@ -8,6 +8,7 @@ import HomeBitmap2 from "../../assets/home_bitmap@2x.jpg";
 import HomeBitmap3 from "../../assets/home_bitmap@3x.jpg";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import NavigationActions from "../../actions/NavigationActions";
 
 const styles = theme => ({
   home: {
@@ -164,7 +165,12 @@ class Home extends Component {
             We trying to show the most reality buildings created in 3d editors
             from real draws
           </div>
-          <Button size="large" variant="outlined" className={classes.button}>
+          <Button
+            onClick={() => NavigationActions.openProject(0)}
+            size="large"
+            variant="outlined"
+            className={classes.button}
+          >
             <Typography className={classes.textButton}>
               TRY IT FOR FREE
             </Typography>
