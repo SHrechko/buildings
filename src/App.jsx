@@ -81,15 +81,13 @@ class App extends Component {
         currentPageComponent = <HomePage />;
         break;
       case NavigationActionTypes.TRYIT:
-        showIframe = false;
-        currentPageComponent = <Project tryIt={true} />;
+        showIframe = true;
+        currentPageComponent = <Project tryIt={false} />;
         break;
       case NavigationActionTypes.PROJECT:
         if (projectId !== null) {
-          showIframe = true;
-          currentPageComponent = (
-            <Project tryIt={false} projectId={projectId} />
-          );
+          showIframe = false;
+          currentPageComponent = <Project tryIt={true} projectId={projectId} />;
         }
         break;
       case NavigationActionTypes.CONTACTS:
