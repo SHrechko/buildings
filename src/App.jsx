@@ -24,7 +24,7 @@ const styles = () => ({
     width: "100%",
     position: "absolute",
     top: "64px",
-    zIndex: "-1"
+    zIndex: "1000"
   },
   iframe: {
     width: "100%",
