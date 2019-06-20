@@ -78,10 +78,16 @@ class App extends Component {
       case NavigationActionTypes.PROJECTS:
         currentPageComponent = <HomePage />;
         break;
+      case NavigationActionTypes.TRYIT:
+        showIframe = false;
+        currentPageComponent = <Project tryIt={true} />;
+        break;
       case NavigationActionTypes.PROJECT:
         if (projectId !== null) {
           showIframe = true;
-          currentPageComponent = <Project projectId={projectId} />;
+          currentPageComponent = (
+            <Project tryIt={false} projectId={projectId} />
+          );
         }
         break;
       case NavigationActionTypes.CONTACTS:
@@ -109,7 +115,7 @@ class App extends Component {
             title="Projects"
             className={classes.iframe}
             scrolling="no"
-            src="http://ebuildings.eu/building_test_5/index.html"
+            src="http://ebuildings.eu/building_test_6/index.html"
           />
         </div>
       </MuiThemeProvider>

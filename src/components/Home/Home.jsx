@@ -166,7 +166,7 @@ class Home extends Component {
             from real draws
           </div>
           <Button
-            onClick={() => NavigationActions.openProject(0)}
+            onClick={() => NavigationActions.openTryIt()}
             size="large"
             variant="outlined"
             className={classes.button}

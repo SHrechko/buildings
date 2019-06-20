@@ -34,6 +34,18 @@ const styles = theme => ({
     width: "100%",
     position: "relative"
   },
+  map: {
+    height: "775px",
+    width: "100%",
+    position: "relative",
+    top: "0",
+    zIndex: "1000"
+  },
+  iframe: {
+    width: "100%",
+    height: "100%",
+    border: "none"
+  },
   chat: {
     width: "405px",
     maxHeight: "705px",
@@ -45,13 +57,15 @@ const styles = theme => ({
     borderRadius: "6px",
     overflow: "hidden",
     display: "flex",
-    flexDirection: "column"
+    flexDirection: "column",
+    zIndex: "2000"
   },
   resizeButton: {
     position: "absolute",
     top: "689px",
     right: "464px",
-    transition: "right 0.1s linear"
+    transition: "right 0.1s linear",
+    zIndex: "2000"
   },
   resize: {
     marginTop: "-7px",
@@ -392,6 +406,17 @@ class Project extends Component {
 
     return (
       <div className={classes.project}>
+        <div
+          className={classes.map}
+          style={{ display: this.props.tryIt ? "" : "none" }}
+        >
+          <iframe
+            title="Projects"
+            className={classes.iframe}
+            scrolling="no"
+            src="http://ebuildings.eu/building_test_5/index.html"
+          />
+        </div>
         <Dialog
           className={classes.dialog}
           fullWidth={false}

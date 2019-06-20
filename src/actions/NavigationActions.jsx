@@ -4,6 +4,7 @@ export const NavigationActionTypes = {
   HOME: "HOME",
   PROJECTS: "PROJECTS",
   PROJECT: "PROJECT",
+  TRYIT: "TRYIT",
   CONTACTS: "CONTACTS",
   LOG_IN: "LOG_IN"
 };
@@ -23,6 +24,11 @@ const Actions = {
     NavigationDispatcher.dispatch({
       type: NavigationActionTypes.PROJECT,
       id: projectId
+    });
+  },
+  openTryIt() {
+    NavigationDispatcher.dispatch({
+      type: NavigationActionTypes.TRYIT
     });
   },
   openContacts() {
