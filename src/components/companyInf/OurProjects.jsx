@@ -8,6 +8,9 @@ import Icon from "@material-ui/core/Icon";
 import Group2_1 from "../../assets/group-9.jpg";
 import Group2_2 from "../../assets/group-9@2x.jpg";
 import Group2_3 from "../../assets/group-9@3x.jpg";
+import HomeBitmap from "../../assets/home_bitmap.jpg";
+import HomeBitmap2 from "../../assets/home_bitmap@2x.jpg";
+import HomeBitmap3 from "../../assets/home_bitmap@3x.jpg";
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -128,9 +131,9 @@ const styles = theme => ({
 const sliderItems = [
   {
     id: 0,
-    img: Group2_1,
-    img2: Group2_2,
-    img3: Group2_3,
+    img: HomeBitmap,
+    img2: HomeBitmap2,
+    img3: HomeBitmap3,
     name: "HOUSE Project 01"
   },
   {
