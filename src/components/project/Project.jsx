@@ -366,7 +366,7 @@ class Project extends Component {
       openPlan: false,
       stars: true,
       starIndex: null,
-      chat: true
+      chat: false
     };
   }
 
