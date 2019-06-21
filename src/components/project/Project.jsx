@@ -50,9 +50,11 @@ const styles = theme => ({
   },
   chat: {
     width: "405px",
-    maxHeight: "680px",
-    height: "705px",
+    // maxHeight: "680px",
+    // height: "705px",
+    bottom: "10px",
     position: "absolute",
+    overflow: "hidden",
     top: "5px",
     right: "29px",
     backgroundColor: "#ffffff",
@@ -109,12 +111,16 @@ const styles = theme => ({
   grid: {
     height: "80px",
     overflow: "hidden",
+    position: "absolute",
+    bottom: "0",
     marginTop: "0"
   },
   gridStars: {
     marginTop: "auto",
     height: "max-content",
     padding: "0 15px",
+    position: "absolute",
+    bottom: "80px",
     backgroundColor: "#50575e"
   },
   avatar: {
@@ -148,8 +154,9 @@ const styles = theme => ({
     height: "max-content"
   },
   scrollArea: {
-    margin: "10px 0 0 16px",
-    height: "475px",
+    margin: "10px 0 150px 16px",
+    // height: "475px",
+    position: "relative",
     width: "calc(100% - 25px)",
     "& .scrollbar-container.vertical": {
       opacity: "1 !important"
