@@ -32,7 +32,8 @@ const styles = theme => ({
   project: {
     height: "775px",
     width: "100%",
-    position: "relative"
+    position: "relative",
+    overflow: "hidden"
   },
   map: {
     height: "775px",
@@ -232,7 +233,8 @@ const styles = theme => ({
     margin: "auto 0"
   },
   dialog: {
-    padding: "20px"
+    padding: "20px",
+    zIndex: "3000 !important"
   },
   sliderItem: {
     display: "flex !important",
