@@ -86,35 +86,46 @@ class Footer extends Component {
       <React.Fragment>
         <div
           className={classes.footer}
-          style={!this.props.home ? { height: "159px" } : {}}
+          style={
+            !this.props.home
+              ? {
+                  height: "60px",
+                  position: "absolute",
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  zIndex: "2500"
+                }
+              : {}
+          }
         >
           <img
             alt="Logo"
             src={Logo}
             className={classes.logo}
-            style={
-              !this.props.home
-                ? { marginBottom: "20px", marginTop: "28px", opacity: 0.5 }
-                : {}
-            }
+            style={!this.props.home ? { margin: "auto", opacity: 0.5 } : {}}
           />
           {this.props.home && (
-            <div className={classes.links}>
-              <Typography variant="body1">Home</Typography>
-              <Typography variant="body1">3D Visual</Typography>
-              <Typography variant="body1">Projects</Typography>
-              <Typography variant="body1">Contacts</Typography>
-            </div>
+            <React.Fragment>
+              <div className={classes.links}>
+                <Typography variant="body1">Home</Typography>
+                <Typography variant="body1">3D Visual</Typography>
+                <Typography variant="body1">Projects</Typography>
+                <Typography variant="body1">Contacts</Typography>
+              </div>
+
+              <Typography
+                className={classes.txt}
+                variant="body1"
+                style={!this.props.home ? { marginTop: "0", opacity: 0.5 } : {}}
+              >
+                SEO text. Some features about company and other main
+                information.
+              </Typography>
+            </React.Fragment>
           )}
-          <Typography
-            className={classes.txt}
-            variant="body1"
-            style={!this.props.home ? { marginTop: "0", opacity: 0.5 } : {}}
-          >
-            SEO text. Some features about company and other main information.
-          </Typography>
         </div>
-        {!this.props.home && (
+        {/* {!this.props.home && (
           <div className={classes.socialBlock}>
             <div>
               <IconButton size="small" className={classes.img}>
@@ -125,7 +136,7 @@ class Footer extends Component {
               </IconButton>
             </div>
           </div>
-        )}
+        )} */}
       </React.Fragment>
     );
   }

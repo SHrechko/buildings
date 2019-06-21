@@ -30,13 +30,14 @@ import "slick-carousel/slick/slick-theme.css";
 
 const styles = theme => ({
   project: {
-    height: "775px",
+    height: "calc(100vh - 66px)",
     width: "100%",
+    boxSizing: "border-box",
     position: "relative",
     overflow: "hidden"
   },
   map: {
-    height: "775px",
+    height: "100%",
     width: "100%",
     position: "relative",
     top: "0",

@@ -20,13 +20,14 @@ theme = responsiveFontSizes(theme);
 
 const styles = () => ({
   project: {
-    height: "775px",
+    height: "calc(100vh - 66px)",
     width: "100%",
     position: "absolute",
     top: "64px",
     left: 0,
     right: 0,
-    zIndex: "1000"
+    zIndex: "1000",
+    overflow: "hidden"
   },
   iframe: {
     width: "100%",
