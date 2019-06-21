@@ -20,7 +20,7 @@ theme = responsiveFontSizes(theme);
 
 const styles = () => ({
   project: {
-    height: "calc(100vh - 66px)",
+    height: "calc(100vh - 60px)",
     width: "100%",
     position: "absolute",
     top: "64px",
@@ -104,20 +104,32 @@ class App extends Component {
     }
     return (
       <MuiThemeProvider theme={theme}>
-        <AppBar home={homePage ? true : false} />
-        <SideBar />
-        {currentPageComponent}
-        <Footer home={homePage ? true : false} />
         <div
-          className={classes.project}
-          style={{ display: showIframe ? "" : "none" }}
+          style={
+            !homePage
+              ? {
+                  maxHeight: "100vh",
+                  position: "relative",
+                  overflowY: "hidden"
+                }
+              : {}
+          }
         >
-          <iframe
-            title="Projects"
-            className={classes.iframe}
-            scrolling="no"
-            src="http://ebuildings.eu/building_test_6/index.html"
-          />
+          <AppBar home={homePage ? true : false} />
+          <SideBar />
+          {currentPageComponent}
+          <Footer home={homePage ? true : false} />
+          <div
+            className={classes.project}
+            style={{ display: showIframe ? "" : "none" }}
+          >
+            <iframe
+              title="Projects"
+              className={classes.iframe}
+              scrolling="no"
+              src="http://ebuildings.eu/building_test_6/index.html"
+            />
+          </div>
         </div>
       </MuiThemeProvider>
     );

@@ -30,7 +30,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 const styles = theme => ({
   project: {
-    height: "calc(100vh - 66px)",
+    height: "calc(100vh - 60px)",
     width: "100%",
     boxSizing: "border-box",
     position: "relative",
@@ -50,10 +50,10 @@ const styles = theme => ({
   },
   chat: {
     width: "405px",
-    maxHeight: "705px",
+    maxHeight: "680px",
     height: "705px",
     position: "absolute",
-    top: "30px",
+    top: "5px",
     right: "29px",
     backgroundColor: "#ffffff",
     borderRadius: "6px",
@@ -64,7 +64,7 @@ const styles = theme => ({
   },
   resizeButton: {
     position: "absolute",
-    top: "689px",
+    top: "calc(100% - 70px)",
     right: "464px",
     transition: "right 0.1s linear",
     zIndex: "2000"
@@ -148,7 +148,7 @@ const styles = theme => ({
     height: "max-content"
   },
   scrollArea: {
-    margin: "32px 0 0 16px",
+    margin: "10px 0 0 16px",
     height: "475px",
     width: "calc(100% - 25px)",
     "& .scrollbar-container.vertical": {
