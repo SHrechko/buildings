@@ -62,25 +62,44 @@ const styles = theme => ({
     overflow: "hidden",
     display: "flex",
     flexDirection: "column",
-    zIndex: "2000"
+    zIndex: "2000",
+    "@media only screen and (max-width: 767px)": {
+      width: "280px",
+      right: "5px"
+    }
   },
   resizeButton: {
     position: "absolute",
     top: "calc(100% - 70px)",
     right: "464px",
     transition: "right 0.1s linear",
-    zIndex: "2000"
+    zIndex: "2000",
+    "@media only screen and (max-width: 767px)": {
+      right: "285px",
+      width: "35px",
+      height: "35px",
+      top: "calc(100% - 45px)"
+    }
   },
   resize: {
     marginTop: "-7px",
     width: "36px",
     height: "45px",
-    backgroundImage: `url(${ResizeIcon})`,
+    background: `url(${ResizeIcon}) no-repeat`,
     backgroundPositionY: "top",
     backgroundPositionX: "center",
     backgroundRepeatX: "no-repeat",
     backgroundRepeatY: "no-repeat",
-    boxSizing: "boder-box"
+    boxSizing: "boder-box",
+    "@media only screen and (max-width: 767px)": {
+      marginTop: "-6px",
+      marginLeft: "1px",
+      width: "42px",
+      height: "51px",
+      position: "absolute",
+      top: "5px",
+      backgroundSize: "cover"
+    }
   },
   appBarChat: {
     margin: 0,
@@ -200,9 +219,13 @@ const styles = theme => ({
     fontFamily: "SFProText",
     fontSize: "14px",
     marginTop: "5px",
-    marginBottom: "11px"
+    marginBottom: "11px",
+    "@media only screen and (max-width: 767px)": {
+      fontSize: "12px"
+    }
   },
   reply: {
+    width: "max-content",
     display: "table",
     cursor: "pointer",
     opacity: "0.3",
@@ -276,7 +299,10 @@ const CssTextField = withStyles({
     },
     "& div.MuiInputBase-root": {
       padding: "12px 16px",
-      width: "318px"
+      width: "318px",
+      "@media only screen and (max-width: 767px)": {
+        width: "210px"
+      }
     },
     "& > label": {
       opacity: "0.32",
@@ -390,17 +416,35 @@ class Project extends Component {
       openPlan: false,
       stars: true,
       starIndex: null,
-      chat: false
+      chat: false,
+      smallResize: window.innerWidth < 768
     };
   }
 
   componentDidMount() {
     window.scroll(0, 0);
+    window.addEventListener("resize", this.resize.bind(this));
+    this.resize();
+  }
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.resize.bind(this));
+  }
+
+  resize() {
+    this.setState({ smallResize: window.innerWidth < 768 });
   }
 
   render() {
     const { classes } = this.props;
-    const { projectId, voted, openPlan, stars, starIndex, chat } = this.state;
+    const {
+      projectId,
+      voted,
+      openPlan,
+      stars,
+      starIndex,
+      chat,
+      smallResize
+    } = this.state;
 
     const settings = {
       adaptiveHeight: true,
@@ -667,7 +711,7 @@ class Project extends Component {
         <IconButton
           onClick={() => this.setState(state => ({ chat: !state.chat }))}
           style={!chat ? { right: "30px" } : {}}
-          size="medium"
+          size={smallResize ? "small" : "medium"}
           className={classes.resizeButton}
         >
           <div className={classes.resize} />

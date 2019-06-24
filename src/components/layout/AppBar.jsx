@@ -20,13 +20,13 @@ const styles = theme => ({
   logo: {
     flexGrow: 1,
     "& > div": {
-      background: `url(${Logo})`,
+      background: `url(${Logo}) no-repeat`,
       backgroundPositionY: "top",
       backgroundPositionX: "left",
+      backgroundRepeat: "no-repeat",
       backgroundRepeatX: "no-repeat",
       backgroundRepeatY: "no-repeat",
       boxSizing: "boder-box",
-      width: "120px",
       height: "33px",
       cursor: "pointer"
     }

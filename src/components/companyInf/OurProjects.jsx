@@ -32,7 +32,7 @@ const styles = theme => ({
       width: "780px"
     },
     "@media only screen and (max-width: 767px)": {
-      width: "auto",
+      width: "320px",
       marginBottom: "80px"
     }
   },
@@ -44,8 +44,8 @@ const styles = theme => ({
     alignItems: "center",
     marginBottom: "50px",
     padding: "0 15px",
-    "@media only screen and (max-width: 424px)": {
-      padding: "0 10px"
+    "@media only screen and (max-width: 767px)": {
+      padding: "0 5px"
     }
   },
   title: {
@@ -57,7 +57,7 @@ const styles = theme => ({
     letterSpacing: "0.2px",
     textTransform: "uppercase",
     flexGrow: 1,
-    "@media only screen and (max-width: 450px)": {
+    "@media only screen and (max-width: 767px)": {
       fontSize: "28px",
       fontWeight: "700"
     }
