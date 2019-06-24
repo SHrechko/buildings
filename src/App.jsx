@@ -27,7 +27,10 @@ const styles = () => ({
     left: 0,
     right: 0,
     zIndex: "1000",
-    overflow: "hidden"
+    overflow: "hidden",
+    "@media only screen and (max-width: 599px)": {
+      top: "56px"
+    }
   },
   iframe: {
     width: "100%",

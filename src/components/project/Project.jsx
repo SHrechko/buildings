@@ -239,11 +239,16 @@ const styles = theme => ({
     color: "#000000"
   },
   sliderImg: {
-    maxWidth: "616px",
-    maxHeight: "326px"
+    maxWidth: "1232px",
+    width: "100%",
+    height: "auto",
+    "@media only screen and (max-width: 450px)": {
+      maxWidth: "100%",
+      maxHeight: "230px"
+    }
   },
   carousel: {
-    maxWidth: "716px",
+    height: "auto",
     "& .slick-prev:before, .slick-next:before": {
       color: "#000000"
     }
@@ -265,10 +270,30 @@ const styles = theme => ({
   },
   dialog: {
     padding: "20px",
-    zIndex: "3000 !important"
+    zIndex: "3000 !important",
+    "@media only screen and (max-width: 767px)": {
+      padding: "5px"
+    },
+    "& .MuiDialog-paper": {
+      margin: 0
+    },
+    "& .MuiDialog-paperFullWidth": {
+      width: "100%",
+      minWidth: "310px"
+    },
+    "& .MuiDialog-container .MuiDialog-scrollPaper": {
+      minWidth: "310px"
+    }
+  },
+  dialogContent: {
+    display: "flex",
+    flexDirection: "column",
+    padding: "20px 50px",
+    "@media only screen and (max-width: 767px)": {
+      padding: 0
+    }
   },
   sliderItem: {
-    display: "flex !important",
     justifyContent: "center",
     outline: "none"
   },
@@ -455,7 +480,15 @@ class Project extends Component {
       infinite: true,
       speed: 500,
       slidesToShow: 1,
-      slidesToScroll: 1
+      slidesToScroll: 1,
+      responsive: [
+        {
+          breakpoint: 767,
+          settings: {
+            arrows: false
+          }
+        }
+      ]
     };
 
     return (
@@ -473,19 +506,13 @@ class Project extends Component {
         </div>
         <Dialog
           className={classes.dialog}
-          fullWidth={false}
-          maxWidth="md"
+          fullWidth={true}
+          maxWidth="xl"
           open={openPlan}
           onClose={() => this.setState({ openPlan: false })}
           aria-labelledby="max-width-dialog-title"
         >
-          <DialogContent
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              padding: "20px 50px"
-            }}
-          >
+          <DialogContent className={classes.dialogContent}>
             <div className={classes.closeBlock}>
               <IconButton
                 onClick={() => this.setState({ openPlan: false })}

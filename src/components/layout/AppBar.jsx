@@ -71,6 +71,7 @@ class AppBar extends Component {
       <div className={classes.root}>
         <AppBarUi
           position={this.props.home ? "absolute" : "static"}
+          // className={classes.appBar}
           style={
             this.props.home
               ? {
